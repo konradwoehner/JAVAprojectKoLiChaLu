@@ -70,10 +70,14 @@ public class JAVAprojectGUI extends JFrame{
                 //Versuch Arryliste in Textfeld Verlauf auszugeben, aber Verzweiflung
                 verlaufTF.setText(modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€");
 
-                for(Smartphone smartphone: smartphones){
+                for(Smartphone smartphone: smartphones) {
                     smartphone.ausgeben();
-                    verlaufTF.setText(modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€");
                 }
+
+                /*for (int i=0; i<smartphones.size(); i++){
+                    String verlauf = Smartphone(i);
+                    verlaufTF.setText(verlauf);
+                }*/
 
 
 

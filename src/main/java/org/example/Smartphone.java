@@ -1,6 +1,6 @@
 package org.example;
 
-public class Smartphone {
+public class Smartphone{
 
     //Attribute Elternklasse
 
