@@ -28,7 +28,7 @@ public class JAVAprojectGUI extends JFrame{
     private JLabel verlaufLabel;
     private JList verlaufList;
     private JLabel euroLabel;
-    private JTextField verlaufTF;
+    private JTextArea verlaufTA;
 
     private ArrayList<Smartphone> smartphones = new ArrayList<Smartphone>();
     private String modell, farbe, gravur;
@@ -88,7 +88,7 @@ public class JAVAprojectGUI extends JFrame{
             }
         });
 
-// test push
+
         speichernButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -103,15 +103,16 @@ public class JAVAprojectGUI extends JFrame{
                 smartphones.add(a);
 
                 //Versuch Arryliste in Textfeld Verlauf auszugeben, aber Verzweiflung
-                verlaufTF.setText(modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€");
+
 
                 for(Smartphone smartphone: smartphones) {
                     smartphone.ausgeben();
+                    verlaufTA.append(modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€");
                 }
 
                 /*for (int i=0; i<smartphones.size(); i++){
                     String verlauf = Smartphone(i);
-                    verlaufTF.setText(verlauf);
+                    verlaufTA.setText(verlauf);
                 }*/
 
 
