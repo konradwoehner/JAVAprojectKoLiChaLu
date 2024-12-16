@@ -83,7 +83,7 @@ public class JAVAprojectGUI extends JFrame{
 
                 }
 
-                preisTF.setText("Ihr Preis: "+ preis+"€");
+                preisTF.setText(""+preis);
 
             }
         });
