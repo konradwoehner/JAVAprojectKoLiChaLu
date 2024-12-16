@@ -53,7 +53,7 @@ public class JAVAprojectGUI extends JFrame{
                 switch (modell){
                     case"Apple iPhone14":preis =800.00;break;
                     case"Apple iPhone15":preis=1000.00;break;
-                    case"BApple iPhone16":preis=2000.00;break;
+                    case"Apple iPhone16":preis=2000.00;break;
                     case"Samsung Galaxy S23":preis=799.99;break;
                     case"Samsung Galaxy S24":preis=1299.99;break;
                     case"Samsung Galaxy S24 Ultra":preis =2200.00;break;
