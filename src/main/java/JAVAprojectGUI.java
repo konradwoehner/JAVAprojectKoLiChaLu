@@ -102,9 +102,6 @@ public class JAVAprojectGUI extends JFrame{
                 Smartphone a = new Smartphone(modell, farbe, gravur, speicher, ram, preis);
                 smartphones.add(a);
 
-
-
-
                 //Versuch Arryliste in Textfeld Verlauf auszugeben, aber Verzweiflung
                 verlaufTF.setText(modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€");
 
