@@ -3,7 +3,7 @@ import org.example.Smartphone;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
- import java.util.ArrayList;
+import java.util.ArrayList;
 
 public class JAVAprojectGUI extends JFrame{
     private JLabel titelLabel;
@@ -30,10 +30,10 @@ public class JAVAprojectGUI extends JFrame{
     private JLabel euroLabel;
     private JTextArea verlaufTA;
 
-    private ArrayList<Smartphone> smartphones = new ArrayList<Smartphone>();
-    private String modell, farbe, gravur;
-    private int speicher, ram;
-    private double preis;
+    protected ArrayList<Smartphone> smartphones = new ArrayList<Smartphone>();
+    protected String modell, farbe, gravur;
+    protected int speicher, ram;
+    protected double preis;
 
     public JAVAprojectGUI() {
         setTitle("Smartphone-Konfigurator");
@@ -89,7 +89,7 @@ public class JAVAprojectGUI extends JFrame{
             }
         });
 
-
+// test push
         speichernButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -106,6 +106,8 @@ public class JAVAprojectGUI extends JFrame{
                 //Versuch Arryliste in Textfeld Verlauf auszugeben, aber Verzweiflung
 
 
+                for(Smartphone smartphone: smartphones){
+                    verlaufTF.setText(smartphone.ausgeben()+"\n");
                 for(Smartphone smartphone: smartphones) {
                     smartphone.ausgeben();
                     verlaufTA.append(modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€");
