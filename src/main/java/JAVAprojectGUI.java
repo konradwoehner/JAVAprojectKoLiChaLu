@@ -3,7 +3,7 @@ import org.example.Smartphone;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+ import java.util.ArrayList;
 
 public class JAVAprojectGUI extends JFrame{
     private JLabel titelLabel;
@@ -83,6 +83,7 @@ public class JAVAprojectGUI extends JFrame{
 
                 }
 
+                pruefe();
                 preisTF.setText(""+preis);
 
             }
@@ -119,6 +120,20 @@ public class JAVAprojectGUI extends JFrame{
 
             }
         });
+    }
+
+    public void pruefe(){
+        try{
+            String gravur = gravurTF.getText();
+            if (gravur.length()>2){
+                throw new IllegalArgumentException();
+            }
+
+        }catch (IllegalArgumentException e1){
+            JOptionPane.showMessageDialog(null,"Bitte gültige Gravur eingeben","Fehlermeldung",JOptionPane.ERROR_MESSAGE);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Falsche Eingabe","Fehlermeldung",JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     public static void main(String[] args) {

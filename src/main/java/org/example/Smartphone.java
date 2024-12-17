@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Smartphone{
 
-    //Attribute Elternklasse
+    //Attribute ArryList
 
     protected String modell, farbe, gravur;
     protected int speicher, ram;

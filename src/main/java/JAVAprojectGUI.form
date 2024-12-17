@@ -119,7 +119,7 @@
         </constraints>
         <properties>
           <background color="-4791041"/>
-          <editable value="true"/>
+          <editable value="false"/>
           <enabled value="true"/>
           <font size="20" style="1"/>
           <foreground color="-16777216"/>
@@ -271,6 +271,7 @@
         </constraints>
         <properties>
           <editable value="false"/>
+          <enabled value="true"/>
         </properties>
       </component>
     </children>
