@@ -18,7 +18,7 @@ public class JAVAprojectGUI extends JFrame{
     private JLabel preisLabel;
     private JTextField preisTF;
     private JButton konfigurierenButton;
-    private JTextField textField1;
+    private JTextField gravurTextField;
     private JLabel gravurLabel;
     private JButton speichernButton;
     private JLabel intitalenBedingungLabel;
@@ -44,13 +44,35 @@ public class JAVAprojectGUI extends JFrame{
         speichernButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                pruefe();
+
+            }
+        });
+        konfigurierenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pruefe();
 
             }
         });
     }
 
+    public void pruefe(){
+        try{
+            String gravur = gravurTextField.getText();
+            if (gravur.length()>2){
+                throw new IllegalArgumentException();
+            }
+
+        }catch (IllegalArgumentException e1){
+            JOptionPane.showMessageDialog(null,"Bitte gültige Gravur eingeben","Fehlermeldung",JOptionPane.ERROR_MESSAGE);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Falsche Eingabe","Fehlermeldung",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
     public static void main(String[] args) {
         new JAVAprojectGUI();
     }
-    //Charlie
 }
+
