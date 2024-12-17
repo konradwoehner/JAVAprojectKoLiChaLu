@@ -30,10 +30,10 @@ public class JAVAprojectGUI extends JFrame{
     private JLabel euroLabel;
     private JTextField verlaufTF;
 
-    private ArrayList<Smartphone> smartphones = new ArrayList<Smartphone>();
-    private String modell, farbe, gravur;
-    private int speicher, ram;
-    private double preis;
+    protected ArrayList<Smartphone> smartphones = new ArrayList<Smartphone>();
+    protected String modell, farbe, gravur;
+    protected int speicher, ram;
+    protected double preis;
 
     public JAVAprojectGUI() {
         setTitle("Smartphone-Konfigurator");
@@ -109,8 +109,7 @@ public class JAVAprojectGUI extends JFrame{
                 verlaufTF.setText(modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€");
 
                 for(Smartphone smartphone: smartphones){
-                    smartphone.ausgeben();
-                    verlaufTF.setText(modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€");
+                    verlaufTF.setText(smartphone.ausgeben()+"\n");
                 }
 
 

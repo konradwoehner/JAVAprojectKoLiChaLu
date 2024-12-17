@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class Smartphone {
 
     //Attribute Elternklasse
@@ -22,8 +24,8 @@ public class Smartphone {
 
     //Methoden
 
-    public void ausgeben(){
-        System.out.println(modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€");
+    public String ausgeben(){
+        return modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€";
     }
 
     }
