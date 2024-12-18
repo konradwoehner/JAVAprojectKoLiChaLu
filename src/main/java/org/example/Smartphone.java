@@ -25,7 +25,9 @@ public class Smartphone {
     //Methoden
 
     public String ausgeben(){
-        return modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€";
+        return modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€"+"\n";
     }
+
+
 
     }

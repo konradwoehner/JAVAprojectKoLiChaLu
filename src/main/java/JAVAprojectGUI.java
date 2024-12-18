@@ -28,7 +28,7 @@ public class JAVAprojectGUI extends JFrame{
     private JLabel verlaufLabel;
     private JList verlaufList;
     private JLabel euroLabel;
-    private JTextField verlaufTF;
+    private JTextArea verlaufTA;
 
     protected ArrayList<Smartphone> smartphones = new ArrayList<Smartphone>();
     protected String modell, farbe, gravur;
@@ -84,6 +84,7 @@ public class JAVAprojectGUI extends JFrame{
                 }
 
                 preisTF.setText(""+preis);
+                pruefe();
 
             }
         });
@@ -100,25 +101,43 @@ public class JAVAprojectGUI extends JFrame{
                 preis = Double.parseDouble(preisTF.getText().toString());
 
                 Smartphone a = new Smartphone(modell, farbe, gravur, speicher, ram, preis);
-                smartphones.add(a);
+                smartphones.
 
 
 
 
                 //Versuch Arryliste in Textfeld Verlauf auszugeben, aber Verzweiflung
-                verlaufTF.setText(modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€");
 
-                for(Smartphone smartphone: smartphones){
-                    verlaufTF.setText(smartphone.ausgeben()+"\n");
+                for(Smartphone i: smartphones){
+                    verlaufTA.setText(modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€"+"\n");
                 }
+
 
 
 
             }
         });
+
+
+    }
+
+    public void pruefe(){
+        try{
+            String gravur = gravurTF.getText();
+            if (gravur.length()>2){
+                throw new IllegalArgumentException();
+            }
+
+        }catch (IllegalArgumentException e1){
+            JOptionPane.showMessageDialog(null,"Bitte gültige Gravur eingeben","Fehlermeldung",JOptionPane.ERROR_MESSAGE);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Falsche Eingabe","Fehlermeldung",JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     public static void main(String[] args) {
         new JAVAprojectGUI();
     }
+
+
 }
