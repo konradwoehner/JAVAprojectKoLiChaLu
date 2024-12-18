@@ -107,7 +107,7 @@ public class JAVAprojectGUI extends JFrame{
 
                 pruefe();
                 preisTF.setText(""+preis);
-
+                speichernButton.setEnabled(true);
             }
         });
 
@@ -132,6 +132,7 @@ public class JAVAprojectGUI extends JFrame{
                     Smartphone smartphone = smartphones.get(i);  // Smartphone an Index i holen
                     verlaufTA.append(smartphone.ausgeben() + "\n");
                 }
+                speichernButton.setEnabled(false);
             }
         });
         preisAbRB.addActionListener(new ActionListener() {
