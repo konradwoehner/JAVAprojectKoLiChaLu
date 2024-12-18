@@ -2,9 +2,9 @@ package org.example;
 
 import java.util.ArrayList;
 
-public class Smartphone {
+public class Smartphone{
 
-    //Attribute Elternklasse
+    //Attribute ArryList
 
     protected String modell, farbe, gravur;
     protected int speicher, ram;
@@ -24,10 +24,8 @@ public class Smartphone {
 
     //Methoden
 
-    public String ausgeben(){
-        return modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€"+"\n";
+    public String ausgeben() {
+        return modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€";
     }
 
-
-
-    }
+}

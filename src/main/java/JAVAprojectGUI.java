@@ -44,12 +44,26 @@ public class JAVAprojectGUI extends JFrame{
         setVisible(true);
 
         konfigurierenButton.addActionListener(new ActionListener() {
+            public void pruefe(){
+                try{
+                    String gravur = gravurTF.getText();
+                    if (gravur.length()>2){
+                        throw new IllegalArgumentException();
+                    }
+
+                }catch (IllegalArgumentException e1){
+                    JOptionPane.showMessageDialog(null,"Bitte gültige Gravur eingeben","Fehlermeldung",JOptionPane.ERROR_MESSAGE);
+                }catch (Exception e){
+                    JOptionPane.showMessageDialog(null,"Falsche Eingabe","Fehlermeldung",JOptionPane.ERROR_MESSAGE);
+                }
+            }
+
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                double preis =0.0;
+                preis =0.0;
 
-                String modell= modellCB.getSelectedItem().toString();
+                modell= modellCB.getSelectedItem().toString();
                 switch (modell){
                     case"Apple iPhone14":preis =800.00;break;
                     case"Apple iPhone15":preis=1000.00;break;
@@ -83,13 +97,12 @@ public class JAVAprojectGUI extends JFrame{
 
                 }
 
-                preisTF.setText(""+preis);
                 pruefe();
+                preisTF.setText(""+preis);
 
             }
         });
 
-// test push
         speichernButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -98,46 +111,28 @@ public class JAVAprojectGUI extends JFrame{
                 speicher = Integer.parseInt(speicherCB.getSelectedItem().toString());
                 ram = Integer.parseInt(ramCB.getSelectedItem().toString());
                 gravur = gravurTF.getText();
-                preis = Double.parseDouble(preisTF.getText().toString());
+                preis = Double.parseDouble(preisTF.getText());
 
                 Smartphone a = new Smartphone(modell, farbe, gravur, speicher, ram, preis);
-                smartphones.
-
-
-
+                smartphones.add(a);
 
                 //Versuch Arryliste in Textfeld Verlauf auszugeben, aber Verzweiflung
 
-                for(Smartphone i: smartphones){
-                    verlaufTA.setText(modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€"+"\n");
+
+                for (Smartphone smartphone : smartphones) {
+                    verlaufTA.append(smartphone.ausgeben() + "\n");
+
+                    for (int i = 0; i < smartphones.size(); i++) {
+                        String verlauf = smartphones.get(i).toString();
+                        verlaufTA.setText(verlauf);
+                    }
+
+
                 }
-
-
-
-
             }
         });
-
-
     }
-
-    public void pruefe(){
-        try{
-            String gravur = gravurTF.getText();
-            if (gravur.length()>2){
-                throw new IllegalArgumentException();
-            }
-
-        }catch (IllegalArgumentException e1){
-            JOptionPane.showMessageDialog(null,"Bitte gültige Gravur eingeben","Fehlermeldung",JOptionPane.ERROR_MESSAGE);
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null,"Falsche Eingabe","Fehlermeldung",JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
     public static void main(String[] args) {
         new JAVAprojectGUI();
     }
-
-
 }
