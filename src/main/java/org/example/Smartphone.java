@@ -25,10 +25,11 @@ public class Smartphone{
     //Methoden
 
     public String ausgeben() {
-        return this.modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€";
+        return this.modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€.";
     }
 
     public double getPreis() {
+
         return preis;
 
 
