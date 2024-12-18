@@ -119,6 +119,19 @@ public class JAVAprojectGUI extends JFrame{
                 //Versuch Arryliste in Textfeld Verlauf auszugeben, aber Verzweiflung
 
 
+                // Liste in einen String umwandeln
+                StringBuilder sb = new StringBuilder();
+                smartphones.forEach(s -> sb.append(s).append("\n")); // Zeilenweise hinzufügen
+
+// String in das Textfeld setzen
+                for (int i = 0; i < smartphones.size();i++){
+                    verlaufTA.setText(smartphones.get(i).ausgeben());
+                }
+
+                //verlaufTA.setText(sb.toString());
+                /*
+                verlaufTA.setText(smartphones.forEach(););
+                smartphones.forEach(System.out::println);
                 for (Smartphone smartphone : smartphones) {
                     verlaufTA.append(smartphone.ausgeben() + "\n");
 
@@ -128,7 +141,7 @@ public class JAVAprojectGUI extends JFrame{
                     }
 
 
-                }
+                }*/
             }
         });
     }
