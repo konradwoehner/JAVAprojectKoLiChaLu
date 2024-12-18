@@ -3,9 +3,6 @@ package org.example;
 import java.util.ArrayList;
 
 public class Smartphone{
-import java.util.ArrayList;
-
-public class Smartphone {
 
     //Attribute ArryList
 
@@ -27,8 +24,8 @@ public class Smartphone {
 
     //Methoden
 
-    public String ausgeben(){
+    public String ausgeben() {
         return modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€";
     }
 
-    }
+}
