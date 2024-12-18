@@ -1,8 +1,10 @@
 package org.example;
 
-public class Smartphone {
+import java.util.ArrayList;
 
-    //Attribute Elternklasse
+public class Smartphone{
+
+    //Attribute ArryList
 
     protected String modell, farbe, gravur;
     protected int speicher, ram;
@@ -20,18 +22,10 @@ public class Smartphone {
         this.preis = preis;
     }
 
-
     //Methoden
 
-
-    public String umformen(){
-        String stmodell = modell;
-        String stfarbe = farbe;
-        String stspeicher = String.valueOf(speicher);
-        String stram = String.valueOf(ram);
-        String stgravur = gravur;
-        String stpreis = String.valueOf(preis);
-        return stmodell + stfarbe + stspeicher;
+    public String ausgeben() {
+        return this.modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€";
     }
 
-    }
+}

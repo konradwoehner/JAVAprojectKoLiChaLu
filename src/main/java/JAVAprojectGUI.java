@@ -28,8 +28,12 @@ public class JAVAprojectGUI extends JFrame{
     private JLabel verlaufLabel;
     private JList verlaufList;
     private JLabel euroLabel;
-    private JTextArea verlauftextArea;
+    private JTextArea verlaufTA;
 
+    protected ArrayList<Smartphone> smartphones = new ArrayList<Smartphone>();
+    protected String modell, farbe, gravur;
+    protected int speicher, ram;
+    protected double preis;
 
     public JAVAprojectGUI() {
         setTitle("Smartphone-Konfigurator");
@@ -40,12 +44,26 @@ public class JAVAprojectGUI extends JFrame{
         setVisible(true);
 
         konfigurierenButton.addActionListener(new ActionListener() {
+            public void pruefe(){
+                try{
+                    String gravur = gravurTF.getText();
+                    if (gravur.length()>2){
+                        throw new IllegalArgumentException();
+                    }
+
+                }catch (IllegalArgumentException e1){
+                    JOptionPane.showMessageDialog(null,"Bitte gültige Gravur eingeben","Fehlermeldung",JOptionPane.ERROR_MESSAGE);
+                }catch (Exception e){
+                    JOptionPane.showMessageDialog(null,"Falsche Eingabe","Fehlermeldung",JOptionPane.ERROR_MESSAGE);
+                }
+            }
+
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                double preis =0.0;
+                preis =0.0;
 
-                String modell= modellCB.getSelectedItem().toString();
+                modell= modellCB.getSelectedItem().toString();
                 switch (modell){
                     case"Apple iPhone14":preis =800.00;break;
                     case"Apple iPhone15":preis=1000.00;break;
@@ -79,41 +97,37 @@ public class JAVAprojectGUI extends JFrame{
 
                 }
 
+                pruefe();
                 preisTF.setText(""+preis);
 
             }
         });
 
-
-// test push
         speichernButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String modell = modellCB.getSelectedItem().toString();
-                String farbe = farbeCB.getSelectedItem().toString();
-                int speicher = Integer.parseInt(speicherCB.getSelectedItem().toString());
-                int ram = Integer.parseInt(ramCB.getSelectedItem().toString());
-                String gravur = gravurTF.getText();
-                double preis = Double.parseDouble(preisTF.getText().toString());
+                // Eingabewerte aus den Formularfeldern
+                modell = modellCB.getSelectedItem().toString();
+                farbe = farbeCB.getSelectedItem().toString();
+                speicher = Integer.parseInt(speicherCB.getSelectedItem().toString());
+                ram = Integer.parseInt(ramCB.getSelectedItem().toString());
+                gravur = gravurTF.getText();
+                preis = Double.parseDouble(preisTF.getText());
 
-                ArrayList<Smartphone>smartphones=new ArrayList<Smartphone>();
+                // Neues Smartphone erstellen und zur Liste hinzufügen
+                Smartphone a = new Smartphone(modell, farbe, gravur, speicher, ram, preis);
+                smartphones.add(a);
 
-                smartphones.add(new Smartphone(modell,farbe,gravur,speicher,ram,preis ));
-                System.out.println(String.valueOf(smartphones));
-
-                //verlauftextArea.setText(String.valueOf(smartphones));
-
-
+                // Alle Smartphones durchgehen und im Textfeld ausgeben
+                verlaufTA.setText("");  // Textfeld zurücksetzen, um die alte Ausgabe zu löschen
+                for (int i = 0; i < smartphones.size(); i++) {
+                    Smartphone smartphone = smartphones.get(i);  // Smartphone an Index i holen
+                    verlaufTA.append(smartphone.ausgeben() + "\n");
                 }
-
-
-
-
+            }
         });
     }
-
     public static void main(String[] args) {
         new JAVAprojectGUI();
-        //System.out.println(preis.umformen());
     }
 }
