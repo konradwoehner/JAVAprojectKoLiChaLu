@@ -29,6 +29,8 @@ public class JAVAprojectGUI extends JFrame{
     private JList verlaufList;
     private JLabel euroLabel;
     private JTextArea verlaufTA;
+    private JRadioButton preisAbRB;
+    private JRadioButton preisAufRB;
 
     protected ArrayList<Smartphone> smartphones = new ArrayList<Smartphone>();
     protected String modell, farbe, gravur;
@@ -42,6 +44,11 @@ public class JAVAprojectGUI extends JFrame{
         setSize(600, 600);
         setContentPane(smartphonePanel);
         setVisible(true);
+
+        //Man kann nur einen RadioButton auswählen
+        ButtonGroup gruppierung = new ButtonGroup();
+        gruppierung.add(preisAufRB);
+        gruppierung.add(preisAbRB);
 
         konfigurierenButton.addActionListener(new ActionListener() {
             public void pruefe(){
