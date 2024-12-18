@@ -137,24 +137,14 @@ public class JAVAprojectGUI extends JFrame{
         preisAbRB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    smartphones.sort(Comparator.comparingDouble(Smartphone::getPreis).reversed());
+                smartphones.sort(Comparator.comparingDouble(Smartphone::getPreis).reversed());
                 verlaufTA.setText("");  // Textfeld zurücksetzen, um die alte Ausgabe zu löschen
                 for (int i = 0; i < smartphones.size(); i++) {
                     Smartphone smartphone = smartphones.get(i);  // Smartphone an Index i holen
                     verlaufTA.append(smartphone.ausgeben() + "\n");
                 }
 
-
-
-
-
-                            /*get(i);
-                    if (smartphones.get(i)<smartphones.get(i+1)){
-
-                    }*/
-
-
-                }
+            }
 
 
         });
