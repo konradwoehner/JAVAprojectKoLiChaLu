@@ -106,6 +106,7 @@ public class JAVAprojectGUI extends JFrame{
         speichernButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                // Eingabewerte aus den Formularfeldern
                 modell = modellCB.getSelectedItem().toString();
                 farbe = farbeCB.getSelectedItem().toString();
                 speicher = Integer.parseInt(speicherCB.getSelectedItem().toString());
@@ -113,35 +114,16 @@ public class JAVAprojectGUI extends JFrame{
                 gravur = gravurTF.getText();
                 preis = Double.parseDouble(preisTF.getText());
 
+                // Neues Smartphone erstellen und zur Liste hinzufügen
                 Smartphone a = new Smartphone(modell, farbe, gravur, speicher, ram, preis);
                 smartphones.add(a);
 
-                //Versuch Arryliste in Textfeld Verlauf auszugeben, aber Verzweiflung
-
-
-                // Liste in einen String umwandeln
-                StringBuilder sb = new StringBuilder();
-                smartphones.forEach(s -> sb.append(s).append("\n")); // Zeilenweise hinzufügen
-
-// String in das Textfeld setzen
-                for (int i = 0; i < smartphones.size();i++){
-                    verlaufTA.setText(smartphones.get(i).ausgeben());
-                }
-
-                //verlaufTA.setText(sb.toString());
-                /*
-                verlaufTA.setText(smartphones.forEach(););
-                smartphones.forEach(System.out::println);
-                for (Smartphone smartphone : smartphones) {
+                // Alle Smartphones durchgehen und im Textfeld ausgeben
+                verlaufTA.setText("");  // Textfeld zurücksetzen, um die alte Ausgabe zu löschen
+                for (int i = 0; i < smartphones.size(); i++) {
+                    Smartphone smartphone = smartphones.get(i);  // Smartphone an Index i holen
                     verlaufTA.append(smartphone.ausgeben() + "\n");
-
-                    for (int i = 0; i < smartphones.size(); i++) {
-                        String verlauf = smartphones.get(i).toString();
-                        verlaufTA.setText(verlauf);
-                    }
-
-
-                }*/
+                }
             }
         });
     }
