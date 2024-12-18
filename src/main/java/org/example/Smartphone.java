@@ -6,9 +6,9 @@ public class Smartphone{
 
     //Attribute ArryList
 
-    protected String modell, farbe, gravur;
-    protected int speicher, ram;
-    protected double preis;
+    private String modell, farbe, gravur;
+    private int speicher, ram;
+    private double preis;
 
 
     //Konstruktor Elternklasse
@@ -28,4 +28,7 @@ public class Smartphone{
         return this.modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€";
     }
 
+    public double getPreis() {
+        return preis;
+    }
 }

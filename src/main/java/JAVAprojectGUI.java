@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class JAVAprojectGUI extends JFrame{
     private JLabel titelLabel;
@@ -131,6 +132,42 @@ public class JAVAprojectGUI extends JFrame{
                     Smartphone smartphone = smartphones.get(i);  // Smartphone an Index i holen
                     verlaufTA.append(smartphone.ausgeben() + "\n");
                 }
+            }
+        });
+        preisAbRB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                    smartphones.sort(Comparator.comparingDouble(Smartphone::getPreis).reversed());
+                verlaufTA.setText("");  // Textfeld zurücksetzen, um die alte Ausgabe zu löschen
+                for (int i = 0; i < smartphones.size(); i++) {
+                    Smartphone smartphone = smartphones.get(i);  // Smartphone an Index i holen
+                    verlaufTA.append(smartphone.ausgeben() + "\n");
+                }
+
+
+
+
+
+                            /*get(i);
+                    if (smartphones.get(i)<smartphones.get(i+1)){
+
+                    }*/
+
+
+                }
+
+
+        });
+        preisAufRB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                smartphones.sort(Comparator.comparingDouble(Smartphone::getPreis));
+                verlaufTA.setText("");  // Textfeld zurücksetzen, um die alte Ausgabe zu löschen
+                for (int i = 0; i < smartphones.size(); i++) {
+                    Smartphone smartphone = smartphones.get(i);  // Smartphone an Index i holen
+                    verlaufTA.append(smartphone.ausgeben() + "\n");
+                }
+
             }
         });
     }
