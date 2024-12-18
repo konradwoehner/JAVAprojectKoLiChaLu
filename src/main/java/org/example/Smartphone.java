@@ -30,5 +30,7 @@ public class Smartphone{
 
     public double getPreis() {
         return preis;
+
+
     }
 }
