@@ -28,12 +28,8 @@ public class JAVAprojectGUI extends JFrame{
     private JLabel verlaufLabel;
     private JList verlaufList;
     private JLabel euroLabel;
-    private JTextField verlaufTF;
+    private JTextArea verlauftextArea;
 
-    private ArrayList<Smartphone> smartphones = new ArrayList<Smartphone>();
-    private String modell, farbe, gravur;
-    private int speicher, ram;
-    private double preis;
 
     public JAVAprojectGUI() {
         setTitle("Smartphone-Konfigurator");
@@ -88,38 +84,36 @@ public class JAVAprojectGUI extends JFrame{
             }
         });
 
+
 // test push
         speichernButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                modell = modellCB.getSelectedItem().toString();
-                farbe = farbeCB.getSelectedItem().toString();
-                speicher = Integer.parseInt(speicherCB.getSelectedItem().toString());
-                ram = Integer.parseInt(ramCB.getSelectedItem().toString());
-                gravur = gravurTF.getText();
-                preis = Double.parseDouble(preisTF.getText().toString());
+                String modell = modellCB.getSelectedItem().toString();
+                String farbe = farbeCB.getSelectedItem().toString();
+                int speicher = Integer.parseInt(speicherCB.getSelectedItem().toString());
+                int ram = Integer.parseInt(ramCB.getSelectedItem().toString());
+                String gravur = gravurTF.getText();
+                double preis = Double.parseDouble(preisTF.getText().toString());
 
-                Smartphone a = new Smartphone(modell, farbe, gravur, speicher, ram, preis);
-                smartphones.add(a);
+                ArrayList<Smartphone>smartphones=new ArrayList<Smartphone>();
+
+                smartphones.add(new Smartphone(modell,farbe,gravur,speicher,ram,preis ));
+                System.out.println(String.valueOf(smartphones));
+
+                //verlauftextArea.setText(String.valueOf(smartphones));
 
 
-
-
-                //Versuch Arryliste in Textfeld Verlauf auszugeben, aber Verzweiflung
-                verlaufTF.setText(modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€");
-
-                for(Smartphone smartphone: smartphones){
-                    smartphone.ausgeben();
-                    verlaufTF.setText(modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€");
                 }
 
 
 
-            }
+
         });
     }
 
     public static void main(String[] args) {
         new JAVAprojectGUI();
+        //System.out.println(preis.umformen());
     }
 }

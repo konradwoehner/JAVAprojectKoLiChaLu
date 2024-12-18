@@ -20,10 +20,18 @@ public class Smartphone {
         this.preis = preis;
     }
 
+
     //Methoden
 
-    public void ausgeben(){
-        System.out.println(modell + ", " + farbe + ", " + speicher + "GB, " + ram + "GB, " + gravur + ", " + preis + "€");
+
+    public String umformen(){
+        String stmodell = modell;
+        String stfarbe = farbe;
+        String stspeicher = String.valueOf(speicher);
+        String stram = String.valueOf(ram);
+        String stgravur = gravur;
+        String stpreis = String.valueOf(preis);
+        return stmodell + stfarbe + stspeicher;
     }
 
     }
