@@ -79,7 +79,6 @@ public class JAVAprojectGUI extends JFrame{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 preis =0.0;
 
                 modell= modellCB.getSelectedItem().toString();
