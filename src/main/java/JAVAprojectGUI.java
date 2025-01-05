@@ -238,12 +238,8 @@ public class JAVAprojectGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 verlaufTA.setText("");  // Textfeld zurücksetzen, um die alte Ausgabe zu löschen
-                preisAbRB.setSelected(false); //Radiobuttons wieder zurückstellen ????
-                preisAufRB.setSelected(false);
-                schwarzRB.setSelected(false);
-                weißRB.setSelected(false);
-                goldRB.setSelected(false);
-                blauRB.setSelected(false);
+                gruppierungPreis.clearSelection();
+                gruppierungFarbe.clearSelection();
 
                 for (int i = 0; i < smartphones.size(); i++) {
                     Smartphone smartphone = smartphones.get(i);  // Smartphone an Index i holen
