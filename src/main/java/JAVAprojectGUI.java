@@ -32,6 +32,11 @@ public class JAVAprojectGUI extends JFrame{
     private JTextArea verlaufTA;
     private JRadioButton preisAbRB;
     private JRadioButton preisAufRB;
+    private JRadioButton blauRB;
+    private JRadioButton goldRB;
+    private JRadioButton weißRB;
+    private JRadioButton schwarzRB;
+    private JButton alleKonfigurationenButton;
 
     protected ArrayList<Smartphone> smartphones = new ArrayList<Smartphone>();
     protected String modell, farbe, gravur;
@@ -42,14 +47,20 @@ public class JAVAprojectGUI extends JFrame{
         setTitle("Smartphone-Konfigurator");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocation(480, 145);
-        setSize(800, 600);
+        setSize(800, 800);
         setContentPane(smartphonePanel);
         setVisible(true);
 
         //Man kann nur einen RadioButton auswählen
-        ButtonGroup gruppierung = new ButtonGroup();
-        gruppierung.add(preisAufRB);
-        gruppierung.add(preisAbRB);
+        ButtonGroup gruppierungPreis = new ButtonGroup();
+        gruppierungPreis.add(preisAufRB);
+        gruppierungPreis.add(preisAbRB);
+
+        ButtonGroup gruppierungFarbe = new ButtonGroup();
+        gruppierungFarbe.add(schwarzRB);
+        gruppierungFarbe.add(weißRB);
+        gruppierungFarbe.add(goldRB);
+        gruppierungFarbe.add(blauRB);
 
         konfigurierenButton.addActionListener(new ActionListener() {
             public void pruefe(){
@@ -161,7 +172,88 @@ public class JAVAprojectGUI extends JFrame{
 
             }
         });
+
+        schwarzRB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                verlaufTA.setText("");
+                farbe = farbeCB.getSelectedItem().toString();
+                for (int i = 0; i < smartphones.size(); i++) {
+                    Smartphone aktuell = smartphones.get(i);
+                    if(aktuell.getFarbe().equals("schwarz")){ // Nur schwarze Smartphones ausgeben
+                        verlaufTA.append(aktuell.ausgeben() + "\n");
+                    }
+                }
+
+
+            }
+        });
+
+        weißRB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                verlaufTA.setText("");
+                farbe = farbeCB.getSelectedItem().toString();
+                for (int i = 0; i < smartphones.size(); i++) {
+                    Smartphone aktuell = smartphones.get(i);
+                    if(aktuell.getFarbe().equals("weiß")){ // Nur weiße Smartphones ausgeben
+                        verlaufTA.append(aktuell.ausgeben() + "\n");
+                    }
+                }
+
+
+            }
+        });
+
+        goldRB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                verlaufTA.setText("");
+                farbe = farbeCB.getSelectedItem().toString();
+                for (int i = 0; i < smartphones.size(); i++) {
+                    Smartphone aktuell = smartphones.get(i);
+                    if(aktuell.getFarbe().equals("gold")){ // Nur goldene Smartphones ausgeben
+                        verlaufTA.append(aktuell.ausgeben() + "\n");
+                    }
+                }
+
+            }
+        });
+
+        blauRB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                verlaufTA.setText("");
+                farbe = farbeCB.getSelectedItem().toString();
+                for (int i = 0; i < smartphones.size(); i++) {
+                    Smartphone aktuell = smartphones.get(i);
+                    if(aktuell.getFarbe().equals("blau")){ // Nur blaue Smartphones ausgeben
+                        verlaufTA.append(aktuell.ausgeben() + "\n");
+                    }
+                }
+
+            }
+        });
+        alleKonfigurationenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                verlaufTA.setText("");  // Textfeld zurücksetzen, um die alte Ausgabe zu löschen
+                preisAbRB.setSelected(false); //Radiobuttons wieder zurückstellen ????
+                preisAufRB.setSelected(false);
+                schwarzRB.setSelected(false);
+                weißRB.setSelected(false);
+                goldRB.setSelected(false);
+                blauRB.setSelected(false);
+
+                for (int i = 0; i < smartphones.size(); i++) {
+                    Smartphone smartphone = smartphones.get(i);  // Smartphone an Index i holen
+                    verlaufTA.append(smartphone.ausgeben() + "\n");
+                }
+
+            }
+        });
     }
+
     public static void main(String[] args) {
         new JAVAprojectGUI();
 

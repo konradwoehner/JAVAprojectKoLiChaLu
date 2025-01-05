@@ -34,4 +34,8 @@ public class Smartphone{
 
 
     }
+
+    public String getFarbe() {
+        return farbe;
+    }
 }
