@@ -83,17 +83,17 @@ public class JAVAprojectGUI extends JFrame{
 
                 modell= modellCB.getSelectedItem().toString();
                 switch (modell){
-                    case"Apple iPhone14":preis =800.00;break;
-                    case"Apple iPhone15":preis=1000.00;break;
-                    case"Apple iPhone16":preis=2000.00;break;
+                    case"Apple iPhone14":preis =799.99;break;
+                    case"Apple iPhone15":preis=999.99;break;
+                    case"Apple iPhone16":preis=1999.99;break;
                     case"Samsung Galaxy S23":preis=799.99;break;
                     case"Samsung Galaxy S24":preis=1299.99;break;
-                    case"Samsung Galaxy S24 Ultra":preis =2200.00;break;
-                    case"Samsung Galaxy Z Flip":preis=1000.00;break;
+                    case"Samsung Galaxy S24 Ultra":preis =2199.99;break;
+                    case"Samsung Galaxy Z Flip":preis=999.99;break;
                     case"Google Pixel 7":preis=499.99;break;
-                    case"Google Pixel 8":preis=600.00;break;
-                    case"Google Pixel 9 Pro":preis=1150.00;break;
-                    case"Huawei P30 Lite":preis=1960.00;break;
+                    case"Google Pixel 8":preis=599.99;break;
+                    case"Google Pixel 9 Pro":preis=1149.99;break;
+                    case"Huawei P30 Lite":preis=1959.99;break;
                     case"Huawei Pura 70 Ultra":preis=2499.99;break;
                 }
 
