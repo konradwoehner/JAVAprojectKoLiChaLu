@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="smartphonePanel" layout-manager="GridLayoutManager" row-count="16" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="25" left="25" bottom="25" right="25"/>
     <constraints>
-      <xy x="4" y="3" width="704" height="674"/>
+      <xy x="4" y="3" width="680" height="699"/>
     </constraints>
     <properties>
       <background color="-4791041"/>
@@ -247,7 +247,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="↻ Ihre letzte Konfiguration:"/>
+          <text value="↻ Letzte Konfigurationen:"/>
         </properties>
       </component>
       <vspacer id="66901">
@@ -264,17 +264,6 @@
           </grid>
         </constraints>
       </vspacer>
-      <component id="ae1ec" class="javax.swing.JTextArea" binding="verlaufTA">
-        <constraints>
-          <grid row="15" column="0" row-span="1" col-span="6" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="50"/>
-          </grid>
-        </constraints>
-        <properties>
-          <editable value="false"/>
-          <enabled value="true"/>
-        </properties>
-      </component>
       <component id="e547f" class="javax.swing.JRadioButton" binding="preisAbRB">
         <constraints>
           <grid row="13" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -347,6 +336,22 @@
           <text value="Alle Konfigurationen"/>
         </properties>
       </component>
+      <scrollpane id="9f5b2">
+        <constraints>
+          <grid row="15" column="0" row-span="1" col-span="6" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="ae1ec" class="javax.swing.JTextArea" binding="verlaufTA">
+            <constraints/>
+            <properties>
+              <editable value="false"/>
+              <enabled value="true"/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
     </children>
   </grid>
 </form>
