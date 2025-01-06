@@ -141,6 +141,7 @@ public class JAVAprojectGUI extends JFrame{
                 pruefe();
                 preisTF.setText(""+preis);
                 speichernButton.setEnabled(true);
+
             }
         });
 
