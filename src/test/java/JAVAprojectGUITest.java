@@ -6,6 +6,7 @@ class JAVAprojectGUITest {
     @org.junit.jupiter.api.Test
     void  actionPerformed(){
       //  int eingabe = JAVAprojectGUI.pruefe()
+
     }
 
 }
