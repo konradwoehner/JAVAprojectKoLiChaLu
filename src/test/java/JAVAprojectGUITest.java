@@ -1,12 +1,20 @@
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class JAVAprojectGUITest {
     @org.junit.jupiter.api.Test
-    void  berechne(){
-        int eingabe = JAVAprojectGUI.
 
+    void berechnenTest() {
+
+        //non-static method "berechnen()" durch Instanzerstellung zu für Test gefordert static
+        JAVAprojectGUI gui = new JAVAprojectGUI();
+
+        // Test für Apple iPhone14 mit 32 GB Speicher und 4 GB RAM
+        double result = gui.berechnen("Apple iPhone14", "32", "4");
+
+        // Erwarteter Preis: 799.99
+        assertEquals(799.99, result);
     }
-
 }
