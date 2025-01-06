@@ -59,6 +59,66 @@ public class JAVAprojectGUI extends JFrame{
         }
     }
 
+    public static double berechne(double preis, String modell, String speicher, String ram) {
+        switch (modell) {
+            case "Apple iPhone14":
+                preis = 799.99;
+                break;
+            case "Apple iPhone15":
+                preis = 999.99;
+                break;
+            case "Apple iPhone16":
+                preis = 1999.99;
+                break;
+            case "Samsung Galaxy S23":
+                preis = 799.99;
+                break;
+            case "Samsung Galaxy S24":
+                preis = 1299.99;
+                break;
+            case "Samsung Galaxy S24 Ultra":
+                preis = 2199.99;
+                break;
+            case "Samsung Galaxy Z Flip":
+                preis = 999.99;
+                break;
+            case "Google Pixel 7":
+                preis = 499.99;
+                break;
+            case "Google Pixel 8":
+                preis = 599.99;
+                break;
+            case "Google Pixel 9 Pro":
+                preis = 1149.99;
+                break;
+            case "Huawei P30 Lite":
+                preis = 1959.99;
+                break;
+            case "Huawei Pura 70 Ultra":
+                preis = 2499.99;
+                break;
+        }
+        switch (speicher) {
+            case"32":preis=preis+0.00;break;
+            case"64":preis=preis+100.00;break;
+            case"128":preis=preis+200.00;break;
+            case"256":preis=preis+400.00;break;
+            case"512":preis=preis+800.00;break;
+            case"1024":preis=preis+1600.00;break;
+        }
+
+        switch (ram) {
+            case"4":preis=preis+0.00;break;
+            case"6":preis=preis+50.00;break;
+            case"8":preis=preis+120.00;break;
+
+        }
+        return preis;
+
+
+
+    }
+
     public JAVAprojectGUI() {
         setTitle("Smartphone-Konfigurator");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -100,39 +160,9 @@ public class JAVAprojectGUI extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 preis =0.0;
 
-                modell= modellCB.getSelectedItem().toString();
-                switch (modell){
-                    case"Apple iPhone14":preis =799.99;break;
-                    case"Apple iPhone15":preis=999.99;break;
-                    case"Apple iPhone16":preis=1999.99;break;
-                    case"Samsung Galaxy S23":preis=799.99;break;
-                    case"Samsung Galaxy S24":preis=1299.99;break;
-                    case"Samsung Galaxy S24 Ultra":preis =2199.99;break;
-                    case"Samsung Galaxy Z Flip":preis=999.99;break;
-                    case"Google Pixel 7":preis=499.99;break;
-                    case"Google Pixel 8":preis=599.99;break;
-                    case"Google Pixel 9 Pro":preis=1149.99;break;
-                    case"Huawei P30 Lite":preis=1959.99;break;
-                    case"Huawei Pura 70 Ultra":preis=2499.99;break;
-                }
 
-                String speicher= speicherCB.getSelectedItem().toString();
-                switch (speicher) {
-                    case"32":preis=preis+0.00;break;
-                    case"64":preis=preis+100.00;break;
-                    case"128":preis=preis+200.00;break;
-                    case"256":preis=preis+400.00;break;
-                    case"512":preis=preis+800.00;break;
-                    case"1024":preis=preis+1600.00;break;
-                }
 
-                String ram= ramCB.getSelectedItem().toString();
-                switch (ram) {
-                    case"4":preis=preis+0.00;break;
-                    case"6":preis=preis+50.00;break;
-                    case"8":preis=preis+120.00;break;
-
-                }
+                berechne(preisTF.getSele,modell,speicher,ram);
 
                 pruefe();
                 preisTF.setText(""+preis);

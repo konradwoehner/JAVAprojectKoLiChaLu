@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class JAVAprojectGUITest {
     @org.junit.jupiter.api.Test
-    void  actionPerformed(){
-      //  int eingabe = JAVAprojectGUI.pruefe()
+    void  berechne(){
+        int eingabe = JAVAprojectGUI.
 
     }
 
