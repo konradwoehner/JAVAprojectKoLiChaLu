@@ -100,8 +100,8 @@ public class JAVAprojectGUI extends JFrame{
     public JAVAprojectGUI() {
         setTitle("Smartphone-Konfigurator");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocation(480, 145);
-        setSize(800, 800);
+        setLocation(450, 100);
+        setSize(700, 600);
         setContentPane(smartphonePanel);
         setVisible(true);
 
