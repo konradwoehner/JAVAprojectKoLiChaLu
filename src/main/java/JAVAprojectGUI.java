@@ -43,6 +43,22 @@ public class JAVAprojectGUI extends JFrame{
     protected int speicher, ram;
     protected double preis;
 
+    public void initObjekte(){
+        Smartphone i1 = new Smartphone("Apple iPhone14", "schwarz", "CU", 1024, 8, 2519.99);
+        smartphones.add(i1);
+        Smartphone i2 = new Smartphone("Google Pixel 9 Pro", "blau", "LH", 256, 8, 1669.99);
+        smartphones.add(i2);
+        Smartphone i3 = new Smartphone("Apple iPhone16", "schwarz", "KW", 512, 6, 2849.99);
+        smartphones.add(i3);
+    }
+
+    public void schleifeausgeben(){
+        for (int i = 0; i < smartphones.size(); i++) {
+            Smartphone smartphone = smartphones.get(i);  // Smartphone an Index i holen
+            verlaufTA.append(smartphone.ausgeben() + "\n");
+        }
+    }
+
     public JAVAprojectGUI() {
         setTitle("Smartphone-Konfigurator");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -61,6 +77,9 @@ public class JAVAprojectGUI extends JFrame{
         gruppierungFarbe.add(weißRB);
         gruppierungFarbe.add(goldRB);
         gruppierungFarbe.add(blauRB);
+
+        initObjekte();
+        schleifeausgeben();
 
         konfigurierenButton.addActionListener(new ActionListener() {
             public void pruefe(){
@@ -139,23 +158,17 @@ public class JAVAprojectGUI extends JFrame{
 
                 // Alle Smartphones durchgehen und im Textfeld ausgeben
                 verlaufTA.setText("");  // Textfeld zurücksetzen, um die alte Ausgabe zu löschen
-                for (int i = 0; i < smartphones.size(); i++) {
-                    Smartphone smartphone = smartphones.get(i);  // Smartphone an Index i holen
-                    verlaufTA.append(smartphone.ausgeben() + "\n");
-                }
+                schleifeausgeben();
                 speichernButton.setEnabled(false);
             }
         });
+
         preisAbRB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 smartphones.sort(Comparator.comparingDouble(Smartphone::getPreis).reversed());
                 verlaufTA.setText("");  // Textfeld zurücksetzen, um die alte Ausgabe zu löschen
-                for (int i = 0; i < smartphones.size(); i++) {
-                    Smartphone smartphone = smartphones.get(i);  // Smartphone an Index i holen
-                    verlaufTA.append(smartphone.ausgeben() + "\n");
-                }
-
+                schleifeausgeben();
             }
 
 
@@ -165,11 +178,7 @@ public class JAVAprojectGUI extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 smartphones.sort(Comparator.comparingDouble(Smartphone::getPreis));
                 verlaufTA.setText("");  // Textfeld zurücksetzen, um die alte Ausgabe zu löschen
-                for (int i = 0; i < smartphones.size(); i++) {
-                    Smartphone smartphone = smartphones.get(i);  // Smartphone an Index i holen
-                    verlaufTA.append(smartphone.ausgeben() + "\n");
-                }
-
+                schleifeausgeben();
             }
         });
 
@@ -184,8 +193,6 @@ public class JAVAprojectGUI extends JFrame{
                         verlaufTA.append(aktuell.ausgeben() + "\n");
                     }
                 }
-
-
             }
         });
 
@@ -200,8 +207,6 @@ public class JAVAprojectGUI extends JFrame{
                         verlaufTA.append(aktuell.ausgeben() + "\n");
                     }
                 }
-
-
             }
         });
 
@@ -234,6 +239,7 @@ public class JAVAprojectGUI extends JFrame{
 
             }
         });
+
         alleKonfigurationenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -241,22 +247,12 @@ public class JAVAprojectGUI extends JFrame{
                 gruppierungPreis.clearSelection();
                 gruppierungFarbe.clearSelection();
 
-                for (int i = 0; i < smartphones.size(); i++) {
-                    Smartphone smartphone = smartphones.get(i);  // Smartphone an Index i holen
-                    verlaufTA.append(smartphone.ausgeben() + "\n");
-                }
-
+                schleifeausgeben();
             }
         });
     }
 
     public static void main(String[] args) {
         new JAVAprojectGUI();
-
-
-
-
-
-
     }
 }
