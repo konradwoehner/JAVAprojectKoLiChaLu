@@ -32,6 +32,11 @@ public class JAVAprojectGUI extends JFrame{
     private JTextArea verlaufTA;
     private JRadioButton preisAbRB;
     private JRadioButton preisAufRB;
+    private JRadioButton blauRB;
+    private JRadioButton goldRB;
+    private JRadioButton weißRB;
+    private JRadioButton schwarzRB;
+    private JButton alleKonfigurationenButton;
 
     protected ArrayList<Smartphone> smartphones = new ArrayList<Smartphone>();
     protected String modell, farbe, gravur;
@@ -42,14 +47,20 @@ public class JAVAprojectGUI extends JFrame{
         setTitle("Smartphone-Konfigurator");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocation(480, 145);
-        setSize(600, 600);
+        setSize(800, 800);
         setContentPane(smartphonePanel);
         setVisible(true);
 
         //Man kann nur einen RadioButton auswählen
-        ButtonGroup gruppierung = new ButtonGroup();
-        gruppierung.add(preisAufRB);
-        gruppierung.add(preisAbRB);
+        ButtonGroup gruppierungPreis = new ButtonGroup();
+        gruppierungPreis.add(preisAufRB);
+        gruppierungPreis.add(preisAbRB);
+
+        ButtonGroup gruppierungFarbe = new ButtonGroup();
+        gruppierungFarbe.add(schwarzRB);
+        gruppierungFarbe.add(weißRB);
+        gruppierungFarbe.add(goldRB);
+        gruppierungFarbe.add(blauRB);
 
         konfigurierenButton.addActionListener(new ActionListener() {
             public void pruefe(){
@@ -73,17 +84,17 @@ public class JAVAprojectGUI extends JFrame{
 
                 modell= modellCB.getSelectedItem().toString();
                 switch (modell){
-                    case"Apple iPhone14":preis =800.00;break;
-                    case"Apple iPhone15":preis=1000.00;break;
-                    case"Apple iPhone16":preis=2000.00;break;
+                    case"Apple iPhone14":preis =799.99;break;
+                    case"Apple iPhone15":preis=999.99;break;
+                    case"Apple iPhone16":preis=1999.99;break;
                     case"Samsung Galaxy S23":preis=799.99;break;
                     case"Samsung Galaxy S24":preis=1299.99;break;
-                    case"Samsung Galaxy S24 Ultra":preis =2200.00;break;
-                    case"Samsung Galaxy Z Flip":preis=1000.00;break;
+                    case"Samsung Galaxy S24 Ultra":preis =2199.99;break;
+                    case"Samsung Galaxy Z Flip":preis=999.99;break;
                     case"Google Pixel 7":preis=499.99;break;
-                    case"Google Pixel 8":preis=600.00;break;
-                    case"Google Pixel 9 Pro":preis=1150.00;break;
-                    case"Huawei P30 Lite":preis=1960.00;break;
+                    case"Google Pixel 8":preis=599.99;break;
+                    case"Google Pixel 9 Pro":preis=1149.99;break;
+                    case"Huawei P30 Lite":preis=1959.99;break;
                     case"Huawei Pura 70 Ultra":preis=2499.99;break;
                 }
 
@@ -107,7 +118,7 @@ public class JAVAprojectGUI extends JFrame{
 
                 pruefe();
                 preisTF.setText(""+preis);
-
+                speichernButton.setEnabled(true);
             }
         });
 
@@ -132,6 +143,7 @@ public class JAVAprojectGUI extends JFrame{
                     Smartphone smartphone = smartphones.get(i);  // Smartphone an Index i holen
                     verlaufTA.append(smartphone.ausgeben() + "\n");
                 }
+                speichernButton.setEnabled(false);
             }
         });
         preisAbRB.addActionListener(new ActionListener() {
@@ -160,8 +172,91 @@ public class JAVAprojectGUI extends JFrame{
 
             }
         });
+
+        schwarzRB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                verlaufTA.setText("");
+                farbe = farbeCB.getSelectedItem().toString();
+                for (int i = 0; i < smartphones.size(); i++) {
+                    Smartphone aktuell = smartphones.get(i);
+                    if(aktuell.getFarbe().equals("schwarz")){ // Nur schwarze Smartphones ausgeben
+                        verlaufTA.append(aktuell.ausgeben() + "\n");
+                    }
+                }
+
+
+            }
+        });
+
+        weißRB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                verlaufTA.setText("");
+                farbe = farbeCB.getSelectedItem().toString();
+                for (int i = 0; i < smartphones.size(); i++) {
+                    Smartphone aktuell = smartphones.get(i);
+                    if(aktuell.getFarbe().equals("weiß")){ // Nur weiße Smartphones ausgeben
+                        verlaufTA.append(aktuell.ausgeben() + "\n");
+                    }
+                }
+
+
+            }
+        });
+
+        goldRB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                verlaufTA.setText("");
+                farbe = farbeCB.getSelectedItem().toString();
+                for (int i = 0; i < smartphones.size(); i++) {
+                    Smartphone aktuell = smartphones.get(i);
+                    if(aktuell.getFarbe().equals("gold")){ // Nur goldene Smartphones ausgeben
+                        verlaufTA.append(aktuell.ausgeben() + "\n");
+                    }
+                }
+
+            }
+        });
+
+        blauRB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                verlaufTA.setText("");
+                farbe = farbeCB.getSelectedItem().toString();
+                for (int i = 0; i < smartphones.size(); i++) {
+                    Smartphone aktuell = smartphones.get(i);
+                    if(aktuell.getFarbe().equals("blau")){ // Nur blaue Smartphones ausgeben
+                        verlaufTA.append(aktuell.ausgeben() + "\n");
+                    }
+                }
+
+            }
+        });
+        alleKonfigurationenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                verlaufTA.setText("");  // Textfeld zurücksetzen, um die alte Ausgabe zu löschen
+                gruppierungPreis.clearSelection();
+                gruppierungFarbe.clearSelection();
+
+                for (int i = 0; i < smartphones.size(); i++) {
+                    Smartphone smartphone = smartphones.get(i);  // Smartphone an Index i holen
+                    verlaufTA.append(smartphone.ausgeben() + "\n");
+                }
+
+            }
+        });
     }
+
     public static void main(String[] args) {
         new JAVAprojectGUI();
+
+
+
+
+
+
     }
 }
