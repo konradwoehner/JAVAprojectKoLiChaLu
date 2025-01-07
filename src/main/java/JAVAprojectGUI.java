@@ -141,6 +141,7 @@ public class JAVAprojectGUI extends JFrame{
                 pruefe();
                 preisTF.setText(""+preis);
                 speichernButton.setEnabled(true);
+
             }
         });
 
@@ -247,7 +248,6 @@ public class JAVAprojectGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 verlaufTA.setText("");  // Textfeld zurücksetzen, um die alte Ausgabe zu löschen
-                gruppierungPreis.clearSelection();
                 gruppierungFarbe.clearSelection();
 
                 schleifeausgeben();
