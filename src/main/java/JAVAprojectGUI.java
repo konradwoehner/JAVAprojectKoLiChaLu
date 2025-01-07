@@ -3,6 +3,8 @@ import org.example.Smartphone;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -141,7 +143,6 @@ public class JAVAprojectGUI extends JFrame{
                 pruefe();
                 preisTF.setText(""+preis);
                 speichernButton.setEnabled(true);
-
             }
         });
 
