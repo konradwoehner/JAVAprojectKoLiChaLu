@@ -4,14 +4,14 @@ package org.example;
 
 public class Smartphone{
 
-    //Attribute ArryList
+    //Attribute
 
     private String modell, farbe, gravur;
     private int speicher, ram;
     private double preis;
 
 
-    //Konstruktor Elternklasse
+    //Konstruktor
 
     public Smartphone(String modell, String farbe, String gravur, int speicher, int ram, double preis) {
         this.modell = modell;
@@ -35,4 +35,5 @@ public class Smartphone{
     public String getFarbe() {
         return farbe;
     }
+
 }
