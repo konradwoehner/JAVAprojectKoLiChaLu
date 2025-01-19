@@ -36,7 +36,7 @@ public class JAVAprojectGUI extends JFrame{
     private JRadioButton goldRB;
     private JRadioButton weißRB;
     private JRadioButton schwarzRB;
-    private JButton alleKonfigurationenButton;
+    private JButton filterZurücksetzenButton;
 
     protected ArrayList<Smartphone> smartphones = new ArrayList<Smartphone>();
     protected String modell, farbe, gravur;
@@ -52,6 +52,7 @@ public class JAVAprojectGUI extends JFrame{
         Smartphone i3 = new Smartphone("Apple iPhone16", "schwarz", "KW", 512, 6, 2849.99);
         smartphones.add(i3);
     }
+
 
     public void schleifeausgeben(){
         for (int i = 0; i < smartphones.size(); i++) {
@@ -140,7 +141,7 @@ public class JAVAprojectGUI extends JFrame{
                 berechnen(modellCB.getSelectedItem().toString(), speicherCB.getSelectedItem().toString(), ramCB.getSelectedItem().toString());
                 pruefe();
                 preisTF.setText(""+preis);
-                speichernButton.setEnabled(true)  ;
+                speichernButton.setEnabled(true);
             }
         });
 
@@ -243,7 +244,7 @@ public class JAVAprojectGUI extends JFrame{
             }
         });
 
-        alleKonfigurationenButton.addActionListener(new ActionListener() {
+        filterZurücksetzenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 verlaufTA.setText("");  // Textfeld zurücksetzen, um die alte Ausgabe zu löschen
