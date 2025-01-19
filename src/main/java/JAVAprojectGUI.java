@@ -53,6 +53,7 @@ public class JAVAprojectGUI extends JFrame{
         smartphones.add(i3);
     }
 
+
     public void schleifeausgeben(){
         for (int i = 0; i < smartphones.size(); i++) {
             Smartphone smartphone = smartphones.get(i);  // Smartphone an Index i holen
