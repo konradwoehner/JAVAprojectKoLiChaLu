@@ -140,8 +140,7 @@ public class JAVAprojectGUI extends JFrame{
                 berechnen(modellCB.getSelectedItem().toString(), speicherCB.getSelectedItem().toString(), ramCB.getSelectedItem().toString());
                 pruefe();
                 preisTF.setText(""+preis);
-                speichernButton.setEnabled(true);
-
+                speichernButton.setEnabled(true)  ;
             }
         });
 

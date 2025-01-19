@@ -1,6 +1,6 @@
 package org.example;
 
-import java.util.ArrayList;
+ import java.util.ArrayList;
 
 public class Smartphone{
 
@@ -22,6 +22,7 @@ public class Smartphone{
         this.preis = preis;
     }
 
+        
     //Methoden
 
     public String ausgeben() {
