@@ -125,13 +125,12 @@ public class JAVAprojectGUI extends JFrame{
                 try{
                     String gravur = gravurTF.getText();
                     if (gravur.length()>2){
+                        speichernButton.setEnabled(false);
                         throw new IllegalArgumentException();
                     }
 
                 }catch (IllegalArgumentException e1){
                     JOptionPane.showMessageDialog(null,"Bitte gültige Gravur eingeben","Fehlermeldung",JOptionPane.ERROR_MESSAGE);
-                }catch (Exception e){
-                    JOptionPane.showMessageDialog(null,"Falsche Eingabe","Fehlermeldung",JOptionPane.ERROR_MESSAGE);
                 }
             }
 
@@ -139,9 +138,9 @@ public class JAVAprojectGUI extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 preis =0.0;
                 berechnen(modellCB.getSelectedItem().toString(), speicherCB.getSelectedItem().toString(), ramCB.getSelectedItem().toString());
+                speichernButton.setEnabled(true);
                 pruefe();
                 preisTF.setText(""+preis);
-                speichernButton.setEnabled(true);
             }
         });
 
