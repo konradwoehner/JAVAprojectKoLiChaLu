@@ -38,7 +38,7 @@ public class JAVAprojectGUI extends JFrame{
     private JRadioButton schwarzRB;
     private JButton filterZurücksetzenButton;
 
-    protected ArrayList<Smartphone> smartphones = new ArrayList<Smartphone>();
+    protected ArrayList<Smartphone> smartphones = new ArrayList<>();
     protected String modell, farbe, gravur;
     protected int speicher, ram;
     protected double preis;
@@ -175,9 +175,8 @@ public class JAVAprojectGUI extends JFrame{
                 verlaufTA.setText("");  // Textfeld zurücksetzen, um die alte Ausgabe zu löschen
                 schleifeausgeben();
             }
-
-
         });
+
         preisAufRB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
