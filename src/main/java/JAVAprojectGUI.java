@@ -117,9 +117,11 @@ public class JAVAprojectGUI extends JFrame{
         gruppierungFarbe.add(goldRB);
         gruppierungFarbe.add(blauRB);
 
+        //Methodenaufruf
         initObjekte();
         schleifeausgeben();
 
+        //Buttons
         konfigurierenButton.addActionListener(new ActionListener() {
             public void pruefe(){
                 try{
@@ -254,6 +256,7 @@ public class JAVAprojectGUI extends JFrame{
         });
     }
 
+    //main-Methode zum Programmstart
     public static void main(String[] args) {
         new JAVAprojectGUI();
     }
