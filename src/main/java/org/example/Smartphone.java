@@ -22,7 +22,6 @@ public class Smartphone{
         this.preis = preis;
     }
 
-        
     //Methoden
 
     public String ausgeben() {

@@ -169,7 +169,7 @@ public class JAVAprojectGUI extends JFrame{
         preisAbRB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                smartphones.sort(Comparator.comparingDouble(Smartphone::getPreis).reversed());
+                smartphones.sort(Comparator.comparingDouble(Smartphone::getPreis).reversed()); // Inhaltliche Hilfestellung durch Julia Hosch (Tutorium)
                 verlaufTA.setText("");  // Textfeld zurücksetzen, um die alte Ausgabe zu löschen
                 schleifeausgeben();
             }
@@ -247,7 +247,7 @@ public class JAVAprojectGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 verlaufTA.setText("");  // Textfeld zurücksetzen, um die alte Ausgabe zu löschen
-                gruppierungFarbe.clearSelection();
+                gruppierungFarbe.clearSelection(); // Hilfestellung durch Chat GPT
 
                 schleifeausgeben();
             }
